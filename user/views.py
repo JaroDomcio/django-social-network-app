@@ -6,7 +6,11 @@ def register(request):
         form = CustomRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('register')
+            return redirect('login')
     else:
         form = CustomRegisterForm()
     return render(request,'register.html',{'register_form':form})
+
+
+def home(request):
+    return render(request,'home.html')
