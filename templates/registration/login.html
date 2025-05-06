@@ -1,4 +1,8 @@
 {% load crispy_forms_tags %}
+
+{% load static %}
+<link  rel = "stylesheet" href = "{% static 'login_register.css' %}">
+
 <form method = "POST">
     {% csrf_token %}
     {{ form|crispy}}

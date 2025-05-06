@@ -1,1 +1,8 @@
-<p>Homepage</p>
+{% extends  "base.html" %}
+
+{% load static %}
+<link  rel = "stylesheet" href = "{% static 'login_register.css' %}">
+
+{% block content %}
+<p>Welcome</p>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+{#    <title>{% block title %}title{% endblock %}</title>#}
+    <link rel = "stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="{% url 'logout' %}" title="Logout">Logout</a>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
