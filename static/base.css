@@ -36,3 +36,19 @@ body {
     padding: 30px;
     background-color: #ecf0f1;
 }
+
+.sidebar form button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.sidebar form button:hover {
+    background-color: #c0392b;
+}
