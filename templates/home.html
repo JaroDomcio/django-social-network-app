@@ -16,7 +16,10 @@
             <h2>{{ post.title }}</h2>
             <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
             <p>{{ post.content}}</p>
-            <button class = "delete-button" >Delete </button>
+            <form  method = "POST"  action="{% url 'deletePost' post.id%}">
+                {% csrf_token %}
+                <button class = "delete-button" >Delete </button>
+            </form> 
             <button class = "edit-button" >Edit </button>
           </div>
         {% endfor %}
