@@ -19,8 +19,10 @@
             <form  method = "POST"  action="{% url 'deletePost' post.id%}">
                 {% csrf_token %}
                 <button class = "delete-button" >Delete </button>
-            </form> 
-            <button class = "edit-button" >Edit </button>
+            </form>
+             <a href="{% url 'editPost' post.id %}"> 
+                 <button class = "edit-button" >Edit </button>
+             </a>
           </div>
         {% endfor %}
       </div>

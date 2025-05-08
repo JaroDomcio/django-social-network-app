@@ -19,3 +19,4 @@ def home(request):
     username = request.user.username
     posts = Post.objects.filter(user=request.user).order_by('-date_posted')
     return render(request,'home.html',{'username':username,'posts':posts})
+
