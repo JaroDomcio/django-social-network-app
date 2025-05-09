@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
-    
+  <link rel="stylesheet" href="{% static 'post_managment.css' %}">
 {% endblock %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Post</button>
-    <a href="{% url 'home' %}">Cancel</a>
-</form>
-
-{% endblock content %}
+<div class="form-container">
+  <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Post</button>
+      <a href="{% url 'home' %}">Cancel</a>
+  </form>
+</div>
+{% endblock %}

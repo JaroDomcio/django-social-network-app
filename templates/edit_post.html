@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-
-{% load crispy_forms_tags %}
+{% load static %}
 
 {% block head %}
-
+  <link rel="stylesheet" href="{% static 'post_managment.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1> Edit Post</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit">Save changes</button>
-        <a href="{% url 'home' %}">Cancel</a>
-    </form>
+<div class="form-container">
+  <h2>Edit Post</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Save</button>
+    <a href="{% url 'home' %}">Cancel</a>
+  </form>
+</div>
 {% endblock %}
