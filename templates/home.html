@@ -6,28 +6,30 @@
 {% endblock %}
 
 {% block content %}
-  <div class="home-container">
-    <h1>Welcome, {{ username }}!</h1>
+    <div class="home-container">
+      <h1>Welcome, {{ username }}!</h1>
 
-    {% if posts %}
-      <div class="posts-container">
-        {% for post in posts %}
-          <div class="post-card">
-            <h2>{{ post.title }}</h2>
-            <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
-            <p>{{ post.content}}</p>
-            <form  method = "POST"  action="{% url 'deletePost' post.id%}">
-                {% csrf_token %}
-                <button class = "delete-button" >Delete </button>
-            </form>
-             <a href="{% url 'editPost' post.id %}"> 
-                 <button class = "edit-button" >Edit </button>
-             </a>
-          </div>
-        {% endfor %}
-      </div>
-    {% else %}
-      <p>You haven't written any posts yet.</p>
-    {% endif %}
-  </div>
+      {% if posts %}
+        <div class="posts-container">
+          {% for post in posts %}
+            <div class="post-card">
+              <h2 class="post-title">
+                <a href="{% url 'PostDetails' post.id %}">{{ post.title }}</a>
+              </h2>
+              <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
+              <p>{{ post.content }}</p>
+              <div class="post-actions">
+                <form method="post" action="{% url 'deletePost' post.id %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button class="delete-button">Delete</button>
+                </form>
+                <a href="{% url 'editPost' post.id %}" class="edit-button">Edit</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>You haven't written any posts yet.</p>
+      {% endif %}
+    </div>
 {% endblock %}
