@@ -10,9 +10,9 @@
 
 <body>
     <div class="sidebar">
-        <form method="POST" action="{% url 'logout' %}" style="display:inline;" >
+        <form method="POST" action="{% url 'logout' %}" >
             {% csrf_token %}
-            <button type="submit">Logout</button>
+            <button type="submit" class="logout-button">Logout</button>
         </form>
         <a href="{% url 'createPost' %}">
             <button class="big-white-label">Create post</button>

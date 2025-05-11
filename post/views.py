@@ -11,7 +11,7 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            redirect('home')
+            return redirect('home')
     else:
         form = PostForm()
     return render(request,'create_post.html',{'form':form})
