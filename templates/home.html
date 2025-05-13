@@ -29,7 +29,10 @@
           {% endfor %}
         </div>
       {% else %}
-        <p>You haven't written any posts yet.</p>
+        <div class="empty-state">
+          <p>You haven't written any posts yet.</p>
+          <a href="{% url 'createPost' %}" class="big-white-label">Create your first post</a>
+        </div>
       {% endif %}
     </div>
 {% endblock %}
