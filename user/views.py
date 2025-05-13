@@ -20,3 +20,10 @@ def home(request):
     posts = Post.objects.filter(user=request.user).order_by('-date_posted')
     return render(request,'home.html',{'username':username,'posts':posts})
 
+def search_user(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        users = User.objects.filter(username__contains=searched)
+        return render(request,'search_user.html',{'searched':searched,'users':users})
+    else:
+        return render(request, 'search_user.html', {})

@@ -1,0 +1,34 @@
+.search-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.search-container p {
+  color: #2c3e50;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.user-item:hover {
+  transform: translateY(-2px);
+}
+
+.user-item p {
+  margin: 0;
+  color: #34495e;
+}

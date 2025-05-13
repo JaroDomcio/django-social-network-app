@@ -2,27 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-{#    <title>{% block title %}title{% endblock %}</title>#}
-    <link rel = "stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block head %}{% endblock %}
 </head>
-
-{% block head %} {% endblock %}
-
 <body>
-    <div class="sidebar">
-        <form method="POST" action="{% url 'logout' %}" >
+    <nav class="navbar">
+        <form method="POST" action="{% url 'logout' %}">
             {% csrf_token %}
             <button type="submit" class="logout-button">Logout</button>
         </form>
-        <a href="{% url 'home' %}">
-            <button class="big-white-label">Home</button>
-        </a> 
-        <a href="{% url 'createPost' %}">
-            <button class="big-white-label">Create post</button>
-        </a>
-    </div>
-    {% block content %}
+        <a href="{% url 'home' %}" class="big-white-label">Home</a>
+        <a href="{% url 'createPost' %}" class="big-white-label">Create post</a>
+        <form method="POST" action="{% url 'search_user' %}" class="search-wrapper">
+            {% csrf_token %}
+            <input type = "search" placeholder="Search for other users " name="searched" class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </nav>
 
-    {% endblock %}
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

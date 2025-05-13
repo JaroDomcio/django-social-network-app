@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="search-container">
+    {% if searched %}
+      <p>You searched for: <strong>{{ searched }}</strong></p>
+      <div class="user-list">
+        {% for user in users %}
+          <div class="user-item">
+            <p>{{ user.username }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>You forgot to search a user!</p>
+    {% endif %}
+  </div>
+{% endblock %}
