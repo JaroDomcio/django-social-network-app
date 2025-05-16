@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length= 250)
-    slug = models.SlugField(null = False)
+    slug = models.SlugField(null = False,default='')
     content = models.TextField(null=False)
     date_posted = models.DateTimeField(auto_now_add=True)
 
