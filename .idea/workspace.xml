@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4a4d5c8-9817-45e2-8b2f-54b57fed412d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/profiles/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoBlog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/post/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +122,7 @@
       <workItem from="1747143400035" duration="164000" />
       <workItem from="1747153846649" duration="944000" />
       <workItem from="1747402003820" duration="3666000" />
+      <workItem from="1747407788922" duration="1141000" />
     </task>
     <servers />
   </component>
