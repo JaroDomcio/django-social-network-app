@@ -8,7 +8,14 @@
 {% block content %}
     <div class="home-container">
       <h1>{{ profile.user.username }}'s profile</h1>
-
+      <form method="POST" class = "follow-form">
+          {% csrf_token %}
+          {% if profile in user.profile.follows.all %}
+              <button name ="follow" value="unfollow" type="submit" class="follow-btn unfollow"> unfollow {{ profile.user.username }}</button>
+          {% else %}
+              <button name ="follow" value="follow" type="submit" class="follow-btn follow"> follow {{ profile.user.username }}</button>
+          {% endif %}
+      </form>
       {% if posts %}
         <div class="posts-container">
           {% for post in posts %}

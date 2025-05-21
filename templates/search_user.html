@@ -12,7 +12,7 @@
       <div class="user-list">
         {% for user in users %}
           <div class="user-item">
-            <a href='{% url "UserProfile" user.profile.id %}' class="profile-link">{{ user.username }}</a>
+            <a href='{% url "profile" user.profile.id %}' class="profile-link">{{ user.username }}</a>
           </div>
         {% endfor %}
       </div>

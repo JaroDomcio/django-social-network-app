@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4a4d5c8-9817-45e2-8b2f-54b57fed412d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/profiles/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoBlog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/search_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search_user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +95,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
       </set>
     </attachedChunks>
   </component>
@@ -128,6 +128,7 @@
       <workItem from="1747574560650" duration="5107000" />
       <workItem from="1747582349149" duration="1102000" />
       <workItem from="1747584058006" duration="4491000" />
+      <workItem from="1747851836492" duration="4105000" />
     </task>
     <servers />
   </component>
