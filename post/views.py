@@ -11,7 +11,7 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('home')
+            return redirect('my_profile')
     else:
         form = PostForm()
     return render(request,'create_post.html',{'form':form})
@@ -20,7 +20,7 @@ def createPost(request):
 def deletePost(request,post_id):
     post = get_object_or_404(Post, id=post_id, user=request.user)
     post.delete()
-    return redirect('home')
+    return redirect('my_profile')
 
 @login_required
 def editPost(request,post_id):
@@ -30,7 +30,7 @@ def editPost(request,post_id):
         form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
             form = form.save()
-            return redirect('home')
+            return redirect('my_profile')
 
     else:
         form = EditPostForm(instance=post)
