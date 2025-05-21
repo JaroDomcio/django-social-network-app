@@ -38,5 +38,5 @@ def editPost(request,post_id):
     return render(request,'edit_post.html',{'form':form})
 
 def getPostDetails(request,id,slug):
-    post = get_object_or_404(Post, id=id, slug=slug , user=request.user)
+    post = get_object_or_404(Post, id=id, slug=slug)
     return render(request,'post_detail.html',{'post':post})
