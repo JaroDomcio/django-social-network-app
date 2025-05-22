@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from post.forms import PostForm, EditPostForm
 from .models import Post
+from comment.models import Comment
 
 @login_required()
 def createPost(request):
@@ -39,4 +40,5 @@ def editPost(request,post_id):
 
 def getPostDetails(request,id,slug):
     post = get_object_or_404(Post, id=id, slug=slug)
-    return render(request,'post_detail.html',{'post':post})
+    comments= Comment.objects.filter(post=post).all()
+    return render(request,'post_detail.html',{'post':post,'comments':comments})

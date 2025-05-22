@@ -14,7 +14,19 @@
             <h2>{{ post.title }}</h2>
             <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
             <p>{{ post.content}}</p>
-{#            <p>{{ post.comments }}</p>#}
+            <form method="Post" action="{% url 'CreateComment' post.id %}" style="display:inline">
+                {% csrf_token %}
+                {{ form }}
+                <button class="edit-button" type="submit">Add comment</button>
+            </form>
+             {% if comments %}
+                 {% for comment in comments %}
+                     {{ comment.author }}
+                     {{ comment.content }}
+                 {% endfor %}
+             {% else %}
+                 This post has no comments
+             {% endif %}
           </div>
       </div>
     </div>
