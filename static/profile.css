@@ -85,7 +85,7 @@
   white-space: pre-wrap;
 }
 
-/*.post-author,*/
+.post-author,
 .post-date {
   font-size: 0.85em;
   color: #888;
