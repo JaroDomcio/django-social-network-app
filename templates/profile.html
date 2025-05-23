@@ -25,8 +25,13 @@
               </h2>
               <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
               <p>{{ post.content }}</p>
-          {% endfor %}
+              {% if post.comment_set %}
+                <p class="post-author">{{ post.comment_set.count }} comments </p>
+              {% else %}
+                <p class="post-author">This post has no comments yet. Be the first to comment!</p>   
+              {% endif %}
             </div>
+          {% endfor %}
         </div>
       {% else %}
         <div class="empty-state">
