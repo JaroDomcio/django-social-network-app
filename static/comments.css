@@ -1,0 +1,140 @@
+.comment-form-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.comment-form-section h3 {
+  color: #34495e;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #27ae60;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
+}
+
+.comment-form .edit-button {
+  align-self: flex-start;
+  padding: 8px 16px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.comments-section {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.comments-section h3 {
+  color: #34495e;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-item {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 3px solid #27ae60;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.comment-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.85rem;
+}
+
+.comment-date {
+  font-size: 0.75rem;
+  color: #7f8c8d;
+}
+
+.comment-content {
+  color: #34495e;
+  line-height: 1;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+}
+
+.no-comments {
+  text-align: center;
+  padding: 20px 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #bdc3c7;
+}
+
+.no-comments p {
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+
+.comments-section h3::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #27ae60;
+  margin-top: 3px;
+}
