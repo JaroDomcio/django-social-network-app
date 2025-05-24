@@ -2,48 +2,58 @@
 {% load static %}
 
 {% block head %}
-      <link rel="stylesheet" href="{% static 'profile.css' %}">
-      <link rel="stylesheet" href="{% static 'comments.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" href="{% static 'comments.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class = "home-container">
-      <div class="posts-container">
-          <div class="post-card">
-            <h2>{{ post.title }}</h2>
-            <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
-            <p>{{ post.content}}</p>
-            <div class="comment-form-section">
-                <h3>Add a comment</h3>
-                <form method="Post" action="{% url 'CreateComment' post.id %}" class="comment-form">
+    <div class="home-container">
+        <div class="posts-container">
+            <div class="post-card">
+                <h2>{{ post.title }}</h2>
+                <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
+                <p>{{ post.content }}</p>
+                <form method="post" action="{% url 'like_post' post.id %}">
                     {% csrf_token %}
-                    {{ form }}
-                    <button class="edit-button" type="submit">Add comment</button>
+                    {% if user in post.likes.all %}
+                        <button type="submit">Unlike</button>
+                    {% else %}
+                        <button type="submit">Like</button>
+                    {% endif %}
                 </form>
-            </div>
-            <div class="comments-section">
-                <h3>Comments ({{ comments|length }})</h3>
-                {% if comments %}
-                    <div class="comments-list">
-                        {% for comment in comments %}
-                            <div class="comment-item">
-                                <div class="comment-header">
-                                    <span class="comment-author">{{ comment.author.username }}</span>
-                                    <span class="comment-date">{{ comment.created|date:"Y-m-d H:i" }}</span>
+                <span>{{ post.likes.count }}</span>
+                <div class="comment-form-section">
+                    <h3>Add a comment</h3>
+                    <form method="Post" action="{% url 'CreateComment' post.id %}" class="comment-form">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="edit-button" type="submit">Add comment</button>
+                    </form>
+                </div>
+                
+                <div class="comments-section">
+                    <h3>Comments ({{ comments|length }})</h3>
+                    {% if comments %}
+                        <div class="comments-list">
+                            {% for comment in comments %}
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">{{ comment.author.username }}</span>
+                                        <span class="comment-date">{{ comment.created|date:"Y-m-d H:i" }}</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        {{ comment.content }}
+                                    </div>
                                 </div>
-                                <div class="comment-content">
-                                    {{ comment.content }}
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <div class="no-comments">
-                        <p>This post has no comments yet. Be the first to comment!</p>
-                    </div>
-                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no-comments">
+                            <p>This post has no comments yet. Be the first to comment!</p>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-          </div>
-      </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from post.forms import PostForm, EditPostForm
 from .models import Post
@@ -42,3 +43,13 @@ def getPostDetails(request,id,slug):
     post = get_object_or_404(Post, id=id, slug=slug)
     comments= Comment.objects.filter(post=post).all()
     return render(request,'post_detail.html',{'post':post,'comments':comments})
+
+def LikePost(request,id):
+    post = Post.objects.get(id=id)
+
+    if post.likes.filter(id = request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return redirect(request.META.get('HTTP_REFERER', '/'))

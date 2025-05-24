@@ -18,6 +18,15 @@
               <p class="post-author">Author: {{ post.user.username }} </p>
               <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
               <p>{{ post.content }}</p>
+              <form method="post" action="{% url 'like_post' post.id %}">
+                  {% csrf_token %}
+                  {% if user in post.likes.all %}
+                      <button type="submit">Unlike</button>
+                  {% else %}
+                      <button type="submit">Like</button>
+                  {% endif %}
+              </form>
+              <span>{{ post.likes.count }}</span>
               {% if post.comment_set %}
                 <p class="post-author">{{ post.comment_set.count }} comments </p>
               {% else %}
