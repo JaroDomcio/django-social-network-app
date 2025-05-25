@@ -2,41 +2,55 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" href="{% static 'likes.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="home-container">
-      <h1>{{ profile.user.username }}'s profile</h1>
-      <form method="POST" class = "follow-form">
-          {% csrf_token %}
-          {% if profile in user.profile.follows.all %}
-              <button name ="follow" value="unfollow" type="submit" class="follow-btn unfollow"> unfollow {{ profile.user.username }}</button>
-          {% else %}
-              <button name ="follow" value="follow" type="submit" class="follow-btn follow"> follow {{ profile.user.username }}</button>
-          {% endif %}
-      </form>
-      {% if posts %}
-        <div class="posts-container">
-          {% for post in posts %}
-            <div class="post-card">
-              <h2 class="post-title">
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-              </h2>
-              <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
-              <p>{{ post.content }}</p>
-              {% if post.comment_set %}
-                <p class="post-author">{{ post.comment_set.count }} comments </p>
-              {% else %}
-                <p class="post-author">This post has no comments yet. Be the first to comment!</p>   
-              {% endif %}
+        <h1>{{ profile.user.username }}'s profile</h1>
+        <form method="POST" class="follow-form">
+            {% csrf_token %}
+            {% if profile in user.profile.follows.all %}
+                <button name="follow" value="unfollow" type="submit" class="follow-btn unfollow">
+                    unfollow {{ profile.user.username }}
+                </button>
+            {% else %}
+                <button name="follow" value="follow" type="submit" class="follow-btn follow">
+                    follow {{ profile.user.username }}
+                </button>
+            {% endif %}
+        </form>
+        {% if posts %}
+            <div class="posts-container">
+                {% for post in posts %}
+                    <div class="post-card">
+                        <h2 class="post-title">
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </h2>
+                        <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
+                        <p>{{ post.content }}</p>
+                        <form method="post" action="{% url 'like_post' post.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            {% if user in post.likes.all %}
+                                <button type="submit" class="unlike-btn">Unlike</button>
+                            {% else %}
+                                <button type="submit" class="like-btn">Like</button>
+                            {% endif %}
+                            <span class="likes-badge" id="likes-badge-{{ post.id }}">Likes: {{ post.likes.count }}</span>
+                        </form>
+                        {% if post.comment_set %}
+                            <p class="post-author">{{ post.comment_set.count }} comments</p>
+                        {% else %}
+                            <p class="post-author">This post has no comments yet. Be the first to comment!</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="empty-state">
-          <p>He hasn't written any posts yet.</p>
-        </div>
-      {% endif %}
+        {% else %}
+            <div class="empty-state">
+                <p>He hasn't written any posts yet.</p>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

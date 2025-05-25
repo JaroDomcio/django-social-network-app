@@ -4,6 +4,7 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'profile.css' %}">
     <link rel="stylesheet" href="{% static 'comments.css' %}">
+    <link rel="stylesheet" href="{% static 'likes.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -13,15 +14,15 @@
                 <h2>{{ post.title }}</h2>
                 <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
                 <p>{{ post.content }}</p>
-                <form method="post" action="{% url 'like_post' post.id %}">
+                <form method="post" action="{% url 'like_post' post.id %}" style="display:inline;">
                     {% csrf_token %}
                     {% if user in post.likes.all %}
-                        <button type="submit">Unlike</button>
+                        <button type="submit" class="unlike-btn">Unlike</button>
                     {% else %}
-                        <button type="submit">Like</button>
+                        <button type="submit" class="like-btn">Like</button>
                     {% endif %}
+                    <span class="likes-badge" id="likes-badge-{{ post.id }}">Likes: {{ post.likes.count }}</span>
                 </form>
-                <span>{{ post.likes.count }}</span>
                 <div class="comment-form-section">
                     <h3>Add a comment</h3>
                     <form method="Post" action="{% url 'CreateComment' post.id %}" class="comment-form">
