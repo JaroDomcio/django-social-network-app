@@ -8,8 +8,7 @@
 {% block content %}
     <div class="home-container">
         <h1>Welcome, {{ username }}!</h1>
-        
-        <!-- Stylizowane liczniki followers/following -->
+    
         <div class="stats-container">
             <a href="{% url 'followers_list' user.id %}" class="stat-item">
                 <span class="stat-number">{{ user.profile.get_followers_number }}</span>

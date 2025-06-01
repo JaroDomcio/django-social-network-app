@@ -9,6 +9,16 @@
 {% block content %}
     <div class="home-container">
         <h1>{{ profile.user.username }}'s profile</h1>
+        <div class="stats-container">
+            <a href="{% url 'followers_list' user.id %}" class="stat-item">
+                <span class="stat-number">{{ profile.get_followers_number }}</span>
+                <span class="stat-label">Followers</span>
+            </a>
+            <a href="{% url 'following_list' user.id %}" class="stat-item">
+                <span class="stat-number">{{ profile.get_follows_number }}</span>
+                <span class="stat-label">Following</span>
+            </a>
+        </div>
         <form method="POST" class="follow-form">
             {% csrf_token %}
             {% if profile in user.profile.follows.all %}
