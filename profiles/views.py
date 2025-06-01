@@ -19,3 +19,12 @@ def profile(request,id):
             current_user_profile.save()
 
     return render(request, 'profile.html',{'profile':users_profile,'posts':posts})
+
+
+def followers_list(request, user_id):
+    # Lista obserwujących
+    pass
+
+def following_list(request, user_id):
+    # Lista obserwowanych
+    pass

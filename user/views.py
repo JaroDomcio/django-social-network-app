@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from post.models import Post
-from comment.models import Comment
 from .forms import *
 
 def register(request):

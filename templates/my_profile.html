@@ -2,37 +2,49 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="home-container">
-      <h1>Welcome, {{ username }}!</h1>
+        <h1>Welcome, {{ username }}!</h1>
+        
+        <!-- Stylizowane liczniki followers/following -->
+        <div class="stats-container">
+            <a href="{% url 'followers_list' user.id %}" class="stat-item">
+                <span class="stat-number">{{ user.profile.get_followers_number }}</span>
+                <span class="stat-label">Followers</span>
+            </a>
+            <a href="{% url 'following_list' user.id %}" class="stat-item">
+                <span class="stat-number">{{ user.profile.get_follows_number }}</span>
+                <span class="stat-label">Following</span>
+            </a>
+        </div>
 
-      {% if posts %}
-        <div class="posts-container">
-          {% for post in posts %}
-            <div class="post-card">
-              <h2 class="post-title">
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-              </h2>
-              <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
-              <p>{{ post.content }}</p>
-              <div class="post-actions">
-                <form method="post" action="{% url 'deletePost' post.id %}" style="display:inline;">
-                  {% csrf_token %}
-                  <button class="delete-button">Delete</button>
-                </form>
-                <a href="{% url 'editPost' post.id %}" class="edit-button">Edit</a>
-              </div>
+        {% if posts %}
+            <div class="posts-container">
+                {% for post in posts %}
+                    <div class="post-card">
+                        <h2 class="post-title">
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </h2>
+                        <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
+                        <p>{{ post.content }}</p>
+                        <div class="post-actions">
+                            <form method="post" action="{% url 'deletePost' post.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button class="delete-button">Delete</button>
+                            </form>
+                            <a href="{% url 'editPost' post.id %}" class="edit-button">Edit</a>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="empty-state">
-          <p>You haven't written any posts yet.</p>
-          <a href="{% url 'createPost' %}" class="big-white-label">Create your first post</a>
-        </div>
-      {% endif %}
+        {% else %}
+            <div class="empty-state">
+                <p>You haven't written any posts yet.</p>
+                <a href="{% url 'createPost' %}" class="big-white-label">Create your first post</a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
