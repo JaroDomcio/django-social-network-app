@@ -1,0 +1,5 @@
+<h2> People {{ profile.user.username }} follows</h2>
+{% for User in following %}
+    {{ User.user.username }}
+{% endfor %}
+

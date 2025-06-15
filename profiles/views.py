@@ -3,6 +3,7 @@ from .models import Profile
 from post.models import Post
 
 
+
 def profile(request,id):
     users_profile = Profile.objects.get(id = id)
     posts = Post.objects.filter(user = users_profile.user)
@@ -21,10 +22,12 @@ def profile(request,id):
     return render(request, 'profile.html',{'profile':users_profile,'posts':posts})
 
 
-def followers_list(request, user_id):
-    # Lista obserwujących
-    pass
+def followers_list(request, id):
+    profile = Profile.objects.get(id = id)
+    followers = profile.followers.all()
+    return render(request, 'followers_list.html', {'profile':profile, 'followers':followers})
 
-def following_list(request, user_id):
-    # Lista obserwowanych
-    pass
+def following_list(request, id):
+    profile = Profile.objects.get(id=id)
+    following = profile.follows.all()
+    return render(request, 'following_list.html', {'profile':profile, 'following':following})

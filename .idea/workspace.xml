@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4a4d5c8-9817-45e2-8b2f-54b57fed412d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/followers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/following_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/my_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
@@ -16,10 +22,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="TypeScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -132,7 +138,9 @@
       <workItem from="1748267755156" duration="742000" />
       <workItem from="1748609750913" duration="1319000" />
       <workItem from="1748788126294" duration="75000" />
-      <workItem from="1748814239129" duration="656000" />
+      <workItem from="1748814239129" duration="1181000" />
+      <workItem from="1748862914882" duration="5000" />
+      <workItem from="1750023069331" duration="1564000" />
     </task>
     <servers />
   </component>

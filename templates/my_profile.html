@@ -10,11 +10,11 @@
         <h1>Welcome, {{ username }}!</h1>
     
         <div class="stats-container">
-            <a href="{% url 'followers_list' user.id %}" class="stat-item">
+            <a href="{% url 'followers_list' user.profile.id %}" class="stat-item">
                 <span class="stat-number">{{ user.profile.get_followers_number }}</span>
                 <span class="stat-label">Followers</span>
             </a>
-            <a href="{% url 'following_list' user.id %}" class="stat-item">
+            <a href="{% url 'following_list' user.profile.id %}" class="stat-item">
                 <span class="stat-number">{{ user.profile.get_follows_number }}</span>
                 <span class="stat-label">Following</span>
             </a>
