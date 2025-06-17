@@ -1,5 +1,19 @@
-<h2> People {{ profile.user.username }} follows</h2>
-{% for User in following %}
-    {{ User.user.username }}
-{% endfor %}
+{% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class = 'search-container'>
+        <h2> People {{ profile.user.username }} follows</h2>
+            <div class="user-list">
+                {% for User in following %}
+                    <div class="user-item">
+                        <a href='{% url "profile" User.user.profile.id %}' class="profile-link">{{ User.user.username }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}
