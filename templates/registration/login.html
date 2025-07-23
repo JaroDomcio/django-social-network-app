@@ -8,4 +8,5 @@
     {{ form|crispy}}
     <button type = "submit"> Login </button>
     <p>Don't have an account ? Create one <a href="{% url 'register' %}"> here </a> </p>
+    <p>Forgot your password ? Change it <a href="{% url 'password_reset' %}"> here </a> </p>
 </form>
