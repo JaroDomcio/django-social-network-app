@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="search-container">
+        <div class="user-list">
+            <div class="user-item">
+                <a href="{% url 'password_change' %} " class="profile-link">Change password</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -28,6 +28,9 @@ def homepage(request):
     posts = Post.objects.filter(user__in=followed_users).order_by('-date_posted')
     return render(request, 'homepage.html', {'posts':posts})
 
+def settings(request):
+    return render(request,'settings.html')
+
 def search_user(request):
     if request.method == "POST":
         searched = request.POST['searched']

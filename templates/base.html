@@ -11,6 +11,7 @@
             {% csrf_token %}
             <button type="submit" class="logout-button">Logout</button>
         </form>
+        <a href="{% url 'settings' %}" class="big-white-label">Settings</a>
         <a href="{% url 'my_profile' %}" class="big-white-label">My profile</a>
         <a href="{% url 'homepage' %}" class="big-white-label">Home</a>
         <a href="{% url 'createPost' %}" class="big-white-label">Create post</a>
