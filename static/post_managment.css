@@ -61,3 +61,34 @@ body {
     background-color: #f0f0f0;
     color: #444;
 }
+
+
+.form-container form input[type="file"] {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.form-container form input[type="file"]:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+
+.form-container form input[type="file"]:focus {
+    outline: none;
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: 500;
+    font-size: 14px;
+}

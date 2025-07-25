@@ -19,6 +19,9 @@
                         <p class="post-author">Author: {{ post.user.username }}</p>
                         <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
                         <p>{{ post.content }}</p>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+                        {% endif %}
                         <form method="post" action="{% url 'like_post' post.id %}" style="display:inline;">
                             {% csrf_token %}
                             {% if user in post.likes.all %}

@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -10,6 +11,7 @@ class Post(models.Model):
     slug = models.SlugField(null = False,default='')
     content = models.TextField(null=False)
     date_posted = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to = 'post_images/',blank = True, null= True)
 
     class Meta:
         unique_together = ('user', 'slug')

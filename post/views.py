@@ -1,5 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from post.forms import PostForm, EditPostForm
 from .models import Post
@@ -8,7 +7,7 @@ from comment.models import Comment
 @login_required()
 def createPost(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = request.user

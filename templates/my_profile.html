@@ -29,6 +29,9 @@
                         </h2>
                         <p class="post-date">{{ post.date_posted|date:"Y-m-d H:i" }}</p>
                         <p>{{ post.content }}</p>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+                        {% endif %}
                         <div class="post-actions">
                             <form method="post" action="{% url 'deletePost' post.id %}" style="display:inline;">
                                 {% csrf_token %}
